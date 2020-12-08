@@ -1,0 +1,117 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Nana-Hawau
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: firstName
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lastName
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: middleName
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: gender
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(250)
+            tableName: users
+  - changeSet:
+      id: 2
+      author: Nana-Hawau
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: contact_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    foreignKey: true
+                    foreignKeyName: contact_fkey
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: addressName
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: state
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: country
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: phoneNumber
+                  type: VARCHAR(250)
+            tableName: contacts
+
+  - changeSet:
+      id: 3
+      author: Nana-Hawau
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: role_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    foreignKey: true
+                    foreignKeyName: user_fkey
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(250)
+            tableName: roles
+
+
+
+
