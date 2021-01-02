@@ -10,26 +10,50 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class UserDetailsImplementation  implements UserDetails {
+public class UserDetailsImplementation implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
-
     private String username;
-
     private String email;
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private String gender;
+    private String phoneNumber;
 
     @JsonIgnore
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImplementation(Long id, String username, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+//    public UserDetailsImplementation(Long id, String username, String firstName,  String email, String password,
+//                           Collection<? extends GrantedAuthority> authorities) {
+//        this.id = id;
+//        this.firstName = firstName;
+//        private String lastName;
+//        private String username;
+//        private String password;
+//        private String middleName;
+//        private String gender;
+//        private String email;
+//        private String phoneNumber;
+//        this.authorities = authorities;
+//    }
+
+
+    public UserDetailsImplementation(Long id, String username, String email, String firstName,
+                                     String lastName, String middleName, String gender, String phoneNumber,
+                                     String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
         this.password = password;
         this.authorities = authorities;
     }
@@ -44,6 +68,11 @@ public class UserDetailsImplementation  implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
+                user.getLastName(),
+                user.getMiddleName(),
+                user.getGender(),
+                user.getPhoneNumber(),
+                user.getFirstName(),
                 authorities);
     }
 
