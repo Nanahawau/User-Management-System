@@ -1,5 +1,6 @@
 package com.nana.usermanagementsystem.entities;
 
+import com.nana.usermanagementsystem.models.Auditable;
 import com.nana.usermanagementsystem.models.ERole;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +11,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@Table(name = "users")
-public class Role {
+@Table(name = "roles")
+public class Role extends Auditable<String> {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="roles_seq")
     private Long id;

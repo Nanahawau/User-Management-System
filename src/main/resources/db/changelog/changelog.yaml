@@ -16,18 +16,18 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
-                  name: firstName
+                  name: first_name
                   type: VARCHAR(250)
               - column:
                   constraints:
                     nullable: false
-                  name: lastName
+                  name: last_name
                   type: VARCHAR(250)
 
               - column:
                   constraints:
                     nullable: false
-                  name: middleName
+                  name: middle_name
                   type: VARCHAR(250)
               - column:
                   constraints:
@@ -38,6 +38,42 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: email
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: username
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_date
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_date
                   type: VARCHAR(250)
             tableName: users
   - changeSet:
@@ -64,7 +100,7 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
-                  name: addressName
+                  name: address_name
                   type: VARCHAR(250)
               - column:
                   constraints:
@@ -80,7 +116,31 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
-                  name: phoneNumber
+                  name: phone_number
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_date
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_date
                   type: VARCHAR(250)
             tableName: contacts
 
@@ -110,7 +170,60 @@ databaseChangeLog:
                     nullable: false
                   name: name
                   type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: created_date
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_by
+                  type: VARCHAR(250)
+
+              - column:
+                  constraints:
+                    nullable: true
+                  name: last_modified_date
+                  type: VARCHAR(250)
             tableName: roles
+
+
+  - changeSet:
+      id: 4
+      author: Nana-Hawau
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_role_pkey
+                  name: id
+                  type: BIGINT
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role_id
+                  type: BIGINT
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+
+            tableName: user_roles
 
 
 

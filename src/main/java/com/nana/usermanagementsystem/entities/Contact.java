@@ -1,5 +1,6 @@
 package com.nana.usermanagementsystem.entities;
 
+import com.nana.usermanagementsystem.models.Auditable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,7 +11,8 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-public class Contact {
+@Table(name = "contacts")
+public class Contact extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "contacts_seq")

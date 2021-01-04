@@ -1,5 +1,6 @@
 package com.nana.usermanagementsystem.entities;
 
+import com.nana.usermanagementsystem.models.Auditable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +15,8 @@ import java.util.Set;
 @Setter
 @ToString
 @Table(name = "users")
-public class User {
+@Entity
+public class User extends Auditable<String> {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="users_seq")
     private Long id;
@@ -25,7 +27,6 @@ public class User {
     private String middleName;
     private String gender;
     private String email;
-    private String phoneNumber;
 
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)

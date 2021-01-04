@@ -18,9 +18,6 @@ public class JwtUtils implements Serializable {
 
     private static final long serialVersionUID = 42L;
 
-    @Value("${jwt.expiration.ms}")
-    private int jwtExpirationMs;
-
     @Value("${jwt.secret}")
     private String jwtSecret;
 
@@ -29,6 +26,7 @@ public class JwtUtils implements Serializable {
     public String generateJwtToken(Authentication authentication) {
         UserDetailsImplementation userPrincipal = (UserDetailsImplementation) authentication.getPrincipal();
 
+        int jwtExpirationMs = 50 * 60 * 60;
         return Jwts.builder().setSubject((userPrincipal.getUsername())).setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)).signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();

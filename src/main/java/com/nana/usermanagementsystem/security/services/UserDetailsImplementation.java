@@ -44,7 +44,7 @@ public class UserDetailsImplementation implements UserDetails {
 
 
     public UserDetailsImplementation(Long id, String username, String email, String firstName,
-                                     String lastName, String middleName, String gender, String phoneNumber,
+                                     String lastName, String middleName, String gender,
                                      String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
@@ -53,7 +53,6 @@ public class UserDetailsImplementation implements UserDetails {
         this.lastName = lastName;
         this.middleName = middleName;
         this.gender = gender;
-        this.phoneNumber = phoneNumber;
         this.password = password;
         this.authorities = authorities;
     }
@@ -71,7 +70,6 @@ public class UserDetailsImplementation implements UserDetails {
                 user.getLastName(),
                 user.getMiddleName(),
                 user.getGender(),
-                user.getPhoneNumber(),
                 user.getFirstName(),
                 authorities);
     }

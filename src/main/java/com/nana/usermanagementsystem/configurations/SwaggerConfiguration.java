@@ -33,7 +33,7 @@ public class SwaggerConfiguration {
      * Predicates return a true or false value for a given input
      */
     private Predicate<String> postPaths() {
-        return or(regex("/api/v1.*"), regex("/api.*"));
+        return or(regex("/ums/v1.*"), regex("/api.*"));
     }
 
     /**
