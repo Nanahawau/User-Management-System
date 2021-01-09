@@ -62,7 +62,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: created_date
-                  type: VARCHAR(250)
+                  type: date
 
               - column:
                   constraints:
@@ -74,7 +74,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: last_modified_date
-                  type: VARCHAR(250)
+                  type: date
             tableName: users
   - changeSet:
       id: 2
@@ -129,7 +129,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: created_date
-                  type: VARCHAR(250)
+                  type: date
 
               - column:
                   constraints:
@@ -141,7 +141,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: last_modified_date
-                  type: VARCHAR(250)
+                  type: date
             tableName: contacts
 
   - changeSet:
@@ -161,13 +161,6 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
-                    foreignKey: true
-                    foreignKeyName: user_fkey
-                  name: user_id
-                  type: BIGINT
-              - column:
-                  constraints:
-                    nullable: false
                   name: name
                   type: VARCHAR(250)
               - column:
@@ -180,7 +173,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: created_date
-                  type: VARCHAR(250)
+                  type: date
 
               - column:
                   constraints:
@@ -192,7 +185,7 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: last_modified_date
-                  type: VARCHAR(250)
+                  type: date
             tableName: roles
 
 

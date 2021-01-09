@@ -2,14 +2,16 @@ package com.nana.usermanagementsystem.entities;
 
 import com.nana.usermanagementsystem.models.Auditable;
 import com.nana.usermanagementsystem.models.ERole;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
 @ToString
 @Table(name = "roles")
 public class Role extends Auditable<String> {
@@ -19,11 +21,10 @@ public class Role extends Auditable<String> {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
-    private ERole name;
+    @NonNull
+    private String name;
 
-    public Role() {
 
-    }
 
 
 }

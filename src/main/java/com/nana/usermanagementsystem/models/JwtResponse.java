@@ -7,8 +7,7 @@ import java.util.List;
 public class JwtResponse {
     private String token;
     private String type = "Bearer";
-    private Long id;
-    private String email;
+    private String username;
     private List<String> roles;
 
 
@@ -16,14 +15,11 @@ public class JwtResponse {
 
     }
 
-    public JwtResponse(String token, Long id, String email, List<String> roles) {
+    public JwtResponse(String token, String username, List<String> roles) {
         this.token = token;
-        this.id = id;
-        this.email = email;
+        this.username = username;
         this.roles = roles;
     }
-
-
 
     public String getToken() {
         return token;
@@ -41,21 +37,6 @@ public class JwtResponse {
         this.type = type;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public List<String> getRoles() {
         return roles;
@@ -70,8 +51,7 @@ public class JwtResponse {
         return "JwtResponse{" +
                 "token='" + token + '\'' +
                 ", type='" + type + '\'' +
-                ", id=" + id +
-                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
                 ", roles=" + roles +
                 '}';
     }
