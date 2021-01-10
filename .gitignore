@@ -32,3 +32,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+.gitignore
+
+resources/application.properties
+src/main/resources/application.properties
