@@ -2,7 +2,6 @@ package com.nana.usermanagementsystem.configurations;
 
 import com.nana.usermanagementsystem.security.jwt.AuthEntryPointJwt;
 import com.nana.usermanagementsystem.security.jwt.AuthTokenFilter;
-import com.nana.usermanagementsystem.security.services.UserDetailsServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

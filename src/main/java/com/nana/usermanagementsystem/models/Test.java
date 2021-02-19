@@ -1,4 +1,14 @@
-//package com.nana.usermanagementsystem.models;
+package com.nana.usermanagementsystem.models;
+
+import io.lettuce.core.StrAlgoArgs;
+
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 //
 //import java.util.*;
 ////Alice and Bob work in a beautiful orchard. There are N apple trees in the orchard.
@@ -19,37 +29,44 @@
 ////        [1..500].
 //
 //
-//public class Test {
-//    public static void main(String[] args) {
-////
-////        int[] testNum = {6, 1, 4, 6, 3, 2, 7, 4};
-////        int K = 2;
-////        int L = 1;
-////
-////        int[] testNum = {10, 19, 15};
-////        int K = 2;
-////        int L = 2;
+public class Test {
+    public static void main(String[] args) {
+
+
+        System.out.println(repeatedString("mrmacaroniwentabroad",  10));
 //
-////        int[] testNum = {3, 3, 4, 5 , 6, 6};
-////        int K = 2;
-////        int L = 3;
+//        int[] testNum = {6, 1, 4, 6, 3, 2, 7, 4};
+//        int K = 2;
+//        int L = 1;
 //
-////        int[] testNum = {6, 1, 4, 6, 3, 2, 7, 4};
-////        int K = 3;
-////        int L = 2;
-//
+//        int[] testNum = {10, 19, 15};
+//        int K = 2;
+//        int L = 2;
+
+//        int[] testNum = {3, 3, 4, 5 , 6, 6};
+//        int K = 2;
+//        int L = 3;
+
+        int[] testNum = {6, 1, 4, 6, 3, 2, 7, 4};
+        int K = 3;
+        int L = 2;
+
+        fibonnaci(3);
+
 //         int[] testNum = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 //        int K = 2;
 //        int L = 5;
-//
-//
-//
+
+
+
 //        solution(testNum, K, L);
-//
-//
-//    }
-//
-//
+
+//        sortAlgo(testNum);
+
+
+    }
+
+
 //    public static int solution(int[] A, int K, int L) {
 //
 //        System.out.println(Arrays.toString(A));
@@ -111,10 +128,113 @@
 //
 //        System.out.println(maximum + "max");
 //        return maximum;
-//
 //    }
-//}
+//
+
+
+    /**
+     * So the first iteration uses the current index
+     * and value as smallest and smallestIndex
+     * The second iteration is an index ahead
+     * And checks if the value of the index ahead is less than
+     * the variable smallest
+     * If true, it reassigns smallest to a the value of the
+     * current index in the second iteration,
+     *The second if, those the swapping of indexes if the new value of
+     * smallest is less than the value of the current index of the first iteration
+     * @param Arr
+     */
+
+
+    // Selection Sort O(n2) (Not the best)
+//    public static void sortAlgo (int [] Arr) {
+//        System.out.println(Arrays.toString(Arr) + "IA");
+//
+//        for (int i = 0; i < Arr.length; i++) {
+//
+//            int smallest = Arr[i];
+//            int smallestIndex = i;
+//            for (int j = i + 1; j < Arr.length; j++) {
+//
+//                if (Arr[j] < smallest) {
+//                    smallest = Arr[j];
+//                    smallestIndex = j;
+//                }
+//            }
+//
+//            if (smallest < Arr[i]) {
+//                int temp = Arr[i];
+//                Arr[i] = smallest;
+//                Arr[smallestIndex] = temp;
+//            }
+//
+//        }
 //
 //
-//
-//
+//        System.out.println(Arrays.toString(Arr) + "sorted");
+//    }
+
+
+
+//    private static byte [] createSalt () {
+//        SecureRandom random = new SecureRandom();
+//        byte [] salt = new byte[16];
+//        random.nextBytes(salt);
+//        return  salt;
+//    }
+
+//    public static int countItemsInAnArray (ArrayList <Integer> list) {
+//        if (list.size() == 0 ) {
+//            System.out.println("result is {}:" + 0);
+//            return 0;
+//        }
+
+
+//        final Map<Object, List<Long>> nodePositions = new ConcurrentHashMap<>();
+////        nodePositions.get(nodePositions,)
+//        return (countItemsInAnArray(list) + 1);
+
+//    }
+
+
+    static long repeatedString(String s, long n) {
+        char [] c = s.toCharArray();
+        int noOfOccurence = 0;
+
+        for (int i = 0; i <= n-1; i++) {
+            if (c[i] == 'a') {
+                noOfOccurence++;
+            }
+        }
+
+        return noOfOccurence;
+    }
+
+    static void fibonnaci(int n) {
+        int prev = 0;
+        int additional = 1;
+        ArrayList<Integer> series = new ArrayList<>();
+        series.add(prev);
+        series.add(additional);
+        int next = 0;
+        for (int i = 0; i < n -2; i++ ) {
+
+            next = prev + additional;
+
+            prev = additional;
+            additional = next;
+            series.add(next);
+
+            System.out.println(series + "sequence");
+
+
+        }
+
+
+    }
+
+}
+
+
+
+

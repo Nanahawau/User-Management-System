@@ -28,7 +28,7 @@ public class UserService {
     public ResponseEntity<?> register (RegisterDTO registerDTO) {
         User user = new User();
         user.setPassword(encoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<Role>(registerDTO.getRole()));
+//        user.setRoles(new HashSet<Role>(registerDTO.getRole()));
         user.setContacts(Collections.singletonList(new Contact(registerDTO.getAddressName(), registerDTO.getState()
                 , registerDTO.getCountry(), registerDTO.getPhoneNumber())));
         User userObject = userRepository.save(user);
@@ -52,16 +52,16 @@ public class UserService {
 
 
     public void saveToken (User user, String token){
-        Calendar cal = Calendar.getInstance(); // creates calendar
-        cal.setTime(new Date()); // sets calendar time/date
-        cal.add(Calendar.HOUR_OF_DAY, 12); // adds one hour
-        Date expiryDate = cal.getTime();
-
-        System.out.println("<<<<<<<<<<<< from create token"+user);
-
-        Token newToken = new Token(token, user, expiryDate);
-
-        tokenDAO.save(newToken);
+//        Calendar cal = Calendar.getInstance(); // creates calendar
+//        cal.setTime(new Date()); // sets calendar time/date
+//        cal.add(Calendar.HOUR_OF_DAY, 12); // adds one hour
+//        Date expiryDate = cal.getTime();
+//
+//        System.out.println("<<<<<<<<<<<< from create token"+user);
+//
+//        Token newToken = new Token(token, user, expiryDate);
+//
+//        tokenDAO.save(newToken);
 
     }
 
